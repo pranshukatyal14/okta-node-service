@@ -1,8 +1,8 @@
 const axios = require('axios');
-require('dotenv').config();
-
+const { config } = require('../config/index.js');
+console.log("pranshu--->",config)
 const headers = {
-      Authorization: `SSWS ${process.env.OKTA_API_TOKEN}`,
+      Authorization: `SSWS ${config.apiToken}`,
       Accept: 'application/json',
       'Content-Type': 'application/json',
     };
@@ -10,8 +10,8 @@ const headers = {
 
 async function fetchAllUsers() {
   try {
-    
-    const response = await axios.get(`${process.env.OKTA_DOMAIN}/api/v1/users`, {
+      console.log(`${config.oktaDomain}/api/v1/users`)
+    const response = await axios.get(`${config.oktaDomain}/api/v1/users`, {
       headers,
       params: { limit: 1 }, 
     });
@@ -29,7 +29,7 @@ async function fetchAllUsers() {
 async function fetchUserDevices(userId) {
   try {
     const response = await axios.get(
-      `${process.env.OKTA_DOMAIN}/api/v1/users/${userId}/devices`,
+      `${config.oktaDomain}/api/v1/users/${userId}/devices`,
       { headers }
     );
     return response.data;

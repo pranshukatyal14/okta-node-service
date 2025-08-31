@@ -1,4 +1,5 @@
-require('dotenv').config();
+const { config } = require('../config/index.js');
+
 
 module.exports = function (req, res, next) {
   const authHeader = req.headers['authorization'];
@@ -8,7 +9,7 @@ module.exports = function (req, res, next) {
   }
 
   const token = authHeader.split(' ')[1];
-  if (token !== process.env.API_AUTH_TOKEN) {
+  if (token !== config.apiAuthToken) {
     return res.status(403).json({ message: 'Forbidden: Invalid token' });
   }
 
