@@ -9,7 +9,6 @@ const headers = {
 
 async function fetchAllUsers() {
   try {
-      console.log(`${config.oktaDomain}/api/v1/users`)
     const response = await axios.get(`${config.oktaDomain}/api/v1/users`, {
       headers,
       params: { limit: 1 }, 
