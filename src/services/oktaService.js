@@ -1,6 +1,5 @@
 const axios = require('axios');
 const { config } = require('../config/index.js');
-console.log("pranshu--->",config)
 const headers = {
       Authorization: `SSWS ${config.apiToken}`,
       Accept: 'application/json',
