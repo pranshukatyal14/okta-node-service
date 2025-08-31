@@ -13,7 +13,7 @@ async function fetchAllUsers() {
     
     const response = await axios.get(`${process.env.OKTA_DOMAIN}/api/v1/users`, {
       headers,
-      params: { limit: 1 }, // Optional: remove or adjust as needed
+      params: { limit: 1 }, 
     });
 
     return response.data;
@@ -54,24 +54,3 @@ exports.getUsersAndDevices = async () => {
 };
 
 
-// export const collectPoints: (ui: number, p: number) => Promise<any> = (user_id, points) => {
-//     return new Promise(async (resolve, reject) => {
-//         try {
-//             const response = await axios.post(
-//                 configuration.SERVICE.NFA_REWARDS_APP_URL + "/rewards/npl/collect/" + user_id,
-//                 { points },
-//                 {
-//                     headers: {
-//                         "api-key": configuration.APIKEY.INTERNAL_KEY,
-//                     },
-//                 }
-//             );
-//             const {
-//                 data: { points: user_points },
-//             } = response.data;
-//             resolve(user_points);
-//         } catch (error) {
-//             reject(error);
-//         }
-//     });
-// };
